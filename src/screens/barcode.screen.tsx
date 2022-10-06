@@ -17,7 +17,7 @@ export const BarcodeScreen = ({ navigation }) => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    navigation.navigate("ProductModal");
+    navigation.navigate("ProductScreen");
   };
 
   if (hasPermission === null) {

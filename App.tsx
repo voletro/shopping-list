@@ -8,32 +8,20 @@ import {
   Gear,
   CaretDown,
   CaretLeft,
+  Folder,
 } from "phosphor-react-native";
 import { NativeBaseProvider } from "native-base";
 
-import { ListScreen } from "./src/screens/list.screen";
+import { ListScreen } from "./src/screens/tab/list.screen";
 import { Onboarding1, Onboarding2 } from "./src/screens/onboarding.screen";
 import { ProductScreen } from "./src/screens/product.screen";
 import { BarcodeScreen } from "./src/screens/barcode.screen";
-
-function SearchScreen() {
-  return (
-    <View className="flex-1 justify-center items-center">
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import { SettingsScreen } from "./src/screens/tab/settings.screen";
+import { SearchScreen } from "./src/screens/tab/search.screen";
+import { SavedScreen } from "./src/screens/tab/saved.screen";
 
 const isAndroid = Platform.OS === "android";
-
-function CloseButton() {
-  const navigation = useNavigation();
-  return (
-    <TouchableOpacity onPress={() => navigation.goBack()}>
-      <CaretDown color="black" />
-    </TouchableOpacity>
-  );
-}
+const isiOS = Platform.OS === "ios";
 
 function BackButton() {
   const navigation = useNavigation();
@@ -55,6 +43,8 @@ function TabNavigation() {
             return <ListBullets size={size} color={color} />;
           } else if (route.name === "Search") {
             return <MagnifyingGlass size={size} color={color} />;
+          } else if (route.name === "Saved") {
+            return <Folder size={size} color={color} />;
           } else if (route.name === "Settings") {
             return <Gear size={size} color={color} />;
           }
@@ -67,13 +57,14 @@ function TabNavigation() {
     >
       <Tab.Screen name="List" component={ListScreen} />
       <Tab.Screen name="Search" component={SearchScreen} />
-      <Tab.Screen name="Settings" component={SearchScreen} />
+      <Tab.Screen name="Saved" component={SavedScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
 }
 
 export default function App() {
-  if (1 === 0) {
+  if (1 == 0) {
     const Onboarding = createNativeStackNavigator();
 
     return (
@@ -95,32 +86,30 @@ export default function App() {
     return (
       <NativeBaseProvider>
         <NavigationContainer>
-          <StackNav.Navigator
-            screenOptions={() => ({
-              headerShown: false,
-            })}
-          >
-            <StackNav.Screen name="TabGroup" component={TabNavigation} />
+          <StackNav.Navigator>
+            <StackNav.Screen
+              name="TabGroup"
+              component={TabNavigation}
+              options={() => ({
+                headerShown: false,
+              })}
+            />
             <StackNav.Screen
               options={() => ({
-                headerShown: true,
                 headerTitle: "Scan Product",
                 headerLeft: () => (isAndroid ? null : <BackButton />),
               })}
               name="BarcodeScreen"
               component={BarcodeScreen}
             />
-            <StackNav.Group screenOptions={{ presentation: "modal" }}>
-              <StackNav.Screen
-                name="ProductModal"
-                component={ProductScreen}
-                options={() => ({
-                  headerShown: true,
-                  headerTitle: "Product Information",
-                  headerRight: () => (isAndroid ? null : <CloseButton />),
-                })}
-              />
-            </StackNav.Group>
+            <StackNav.Screen
+              name="ProductScreen"
+              component={ProductScreen}
+              options={() => ({
+                headerTitle: "Product Information",
+                headerLeft: () => (isAndroid ? null : <BackButton />),
+              })}
+            />
           </StackNav.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>
