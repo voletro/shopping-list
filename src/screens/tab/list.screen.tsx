@@ -6,19 +6,17 @@ import { ScrollView, Select } from "native-base";
 
 export const ListScreen = ({ navigation }) => {
   return (
-    <SafeArea>
-      <ScrollView>
-        <View className="justify-center items-center">
-          <ProductCard navigation={navigation} />
-          <ProductCard navigation={navigation} />
-          <ProductCard navigation={navigation} />
-          <ProductCard navigation={navigation} />
-          <ProductCard navigation={navigation} />
-          <ProductCard navigation={navigation} />
-          <ProductCard navigation={navigation} />
-          <ProductCard navigation={navigation} />
-        </View>
-      </ScrollView>
-    </SafeArea>
+    <ScrollView>
+      <View className="justify-center items-center mt-2">
+        <ProductCard navigation={navigation} />
+        <ProductCard navigation={navigation} />
+        <ProductCard navigation={navigation} />
+        <ProductCard navigation={navigation} />
+        <ProductCard navigation={navigation} />
+        <ProductCard navigation={navigation} />
+        <ProductCard navigation={navigation} />
+        <ProductCard navigation={navigation} />
+      </View>
+    </ScrollView>
   );
 };

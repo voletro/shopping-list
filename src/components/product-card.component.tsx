@@ -25,33 +25,6 @@ export const ProductCard = () => {
               <Text>1.1L • </Text>
               <Text>2600kJ</Text>
             </Row>
-            <View className="justify-center mx-4 my-1 bg-[#dc0022] rounded-md p-2">
-              <Row className="justify-between">
-                <ImageRN
-                  source={require("./../assets/images/coles-logo-white.png")}
-                  className="h-8 w-16"
-                  resizeMode="contain"
-                />
-                <Row>
-                  <>
-                    <Text className="bg-yellow-400 p-2 rounded-md mr-2">
-                      SPECIAL
-                    </Text>
-                    <Text className="text-gray-400 text-2xl mr-2 line-through">
-                      {"$11"}
-                    </Text>
-                    <Text className="text-white text-2xl">{"$11"}</Text>
-                  </>
-                </Row>
-              </Row>
-            </View>
-            <Row>
-              <ImageRN
-                source={require("./../assets/images/woolworths-logo-colour.png")}
-                className="h-8 w-16"
-                resizeMode="contain"
-              />
-            </Row>
           </View>
         </Row>
       </TouchableOpacity>

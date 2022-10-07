@@ -55,9 +55,17 @@ function TabNavigation() {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="List" component={ListScreen} />
+      <Tab.Screen
+        name="List"
+        component={ListScreen}
+        options={{ headerShown: true, headerTitle: "Shopping List" }}
+      />
       <Tab.Screen name="Search" component={SearchScreen} />
-      <Tab.Screen name="Saved" component={SavedScreen} />
+      <Tab.Screen
+        name="Saved"
+        component={SavedScreen}
+        options={{ headerShown: true, headerTitle: "Saved Lists" }}
+      />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
