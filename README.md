@@ -1,6 +1,8 @@
-# AU Shopping List App
+# AU Shopping List App - WIP
 
-Compare prices from Coles and Woolworths.
+Compare prices from Coles and Woolworths. 
+
+<img src="screenshot.png" alt="Screenshot" height="500"/>
 
 Built with [Expo](https://expo.dev), [React Native](https://reactnative.dev), and [NativeWind](https://nativewind.dev).
 
@@ -11,5 +13,3 @@ yarn install
 yarn android # for Android development
 yarn ios # for iOS development
 ```
-
-![Screenshot](screenshot.png)
