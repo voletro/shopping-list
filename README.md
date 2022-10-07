@@ -11,3 +11,5 @@ yarn install
 yarn android # for Android development
 yarn ios # for iOS development
 ```
+
+![Screenshot](screenshot.png)
